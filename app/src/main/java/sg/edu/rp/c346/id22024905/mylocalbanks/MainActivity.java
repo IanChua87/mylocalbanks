@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
             }
         } else {
             if (item.getItemId() == 0) { //check whether the selected menu item ID is 0
-                String url = "https://www.ocbc.com";
+                String url = "https://www.uob.com.sg";
                 Intent intentLink = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                 startActivity(intentLink);
 
