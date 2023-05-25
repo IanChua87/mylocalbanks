@@ -2,14 +2,14 @@ package sg.edu.rp.c346.id22024905.mylocalbanks;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-import androidx.core.os.LocaleListCompat;
+
 
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
+
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
                 return true;  //menu item successfully handled
             } else{
-                favoriteDBS = !favoriteDBS;
+                favoriteDBS = true;
                 setFavouriteBank(tvDBS, favoriteDBS);
 
                 return true;
@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
                 return true;  //menu item successfully handled
             } else{
-                favoriteOCBC = !favoriteOCBC;
+                favoriteOCBC = true;
                 setFavouriteBank(tvOCBC, favoriteOCBC);
 
                 return true;
@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intentCall);
                 return true;  //menu item successfully handled
             } else{
-                favoriteUOB = !favoriteUOB;
+                favoriteUOB = true;
                 setFavouriteBank(tvUOB, favoriteUOB);
                 return true;
             }
