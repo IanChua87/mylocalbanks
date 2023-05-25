@@ -6,7 +6,11 @@
         android:orderInCategory="100"
         android:title="English" />
     <item
-        android:id="@+id/italianSelection"
+        android:id="@+id/ChineseSelection"
         android:orderInCategory="101"
         android:title="Chinese" />
+    <item
+        android:id="@+id/ThaiSelection"
+        android:orderInCategory="102"
+        android:title="Thai" />
 </menu>
