@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
                 return true;  //menu item successfully handled
             } else{
-                favoriteDBS = true;
+                favoriteDBS = !favoriteDBS;
                 setFavouriteBank(tvDBS, favoriteDBS);
 
                 return true;
@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
                 return true;  //menu item successfully handled
             } else{
-                favoriteOCBC = true;
+                favoriteOCBC = !favoriteOCBC ;
                 setFavouriteBank(tvOCBC, favoriteOCBC);
 
                 return true;
@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intentCall);
                 return true;  //menu item successfully handled
             } else{
-                favoriteUOB = true;
+                favoriteUOB = !favoriteUOB;
                 setFavouriteBank(tvUOB, favoriteUOB);
                 return true;
             }
@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
         if (favouriteBank) {
             color = ContextCompat.getColor(this, R.color.red);
         } else {
-            color = ContextCompat.getColor(this, R.color.black);
+            color = ContextCompat.getColor(this, R.color.lime);
         }
         bankTextView.setTextColor(color);
     }
