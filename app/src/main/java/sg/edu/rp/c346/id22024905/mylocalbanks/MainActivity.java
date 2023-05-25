@@ -1,6 +1,7 @@
 package sg.edu.rp.c346.id22024905.mylocalbanks;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.os.LocaleListCompat;
 
 import android.content.Intent;
@@ -23,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
     TextView tvOCBC;
     TextView tvUOB;
 
+    private boolean favoriteDBS = false;
+    private boolean favoriteOCBC = false;
+    private boolean favoriteUOB = false;
     String wordClicked = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         menu.add(0,0,0,"Website");
         menu.add(0,1,1,"Contact the bank");
+        menu.add(0, 2, 2, "Toggle Favourite");
 
         if(v == tvDBS){
             wordClicked = "DBS";
@@ -69,6 +74,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intentCall);
 
                 return true;  //menu item successfully handled
+            } else{
+                favoriteDBS = !favoriteDBS;
+                setFavouriteBank(tvDBS, favoriteDBS);
+
+                return true;
             }
         }
         else if (wordClicked.equalsIgnoreCase("OCBC")) {
@@ -83,7 +93,13 @@ public class MainActivity extends AppCompatActivity {
                 //code for action
                 Intent intentCall = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: "+18003633333L));
                 startActivity(intentCall);
+
                 return true;  //menu item successfully handled
+            } else{
+                favoriteOCBC = !favoriteOCBC;
+                setFavouriteBank(tvOCBC, favoriteOCBC);
+
+                return true;
             }
         } else {
             if (item.getItemId() == 0) { //check whether the selected menu item ID is 0
@@ -97,9 +113,12 @@ public class MainActivity extends AppCompatActivity {
                 Intent intentCall = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: " + 18002222121L));
                 startActivity(intentCall);
                 return true;  //menu item successfully handled
+            } else{
+                favoriteUOB = !favoriteUOB;
+                setFavouriteBank(tvUOB, favoriteUOB);
+                return true;
             }
         }
-        return super.onContextItemSelected(item);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -134,5 +153,15 @@ public class MainActivity extends AppCompatActivity {
         tvDBS.setText(R.string.d_bs);
         tvOCBC.setText(R.string.o_cbc);
         tvUOB.setText(R.string.u_ob);
+    }
+
+    private void setFavouriteBank(TextView bankTextView, boolean favouriteBank) {
+        int color;
+        if (favouriteBank) {
+            color = ContextCompat.getColor(this, R.color.red);
+        } else {
+            color = ContextCompat.getColor(this, R.color.black);
+        }
+        bankTextView.setTextColor(color);
     }
 }
