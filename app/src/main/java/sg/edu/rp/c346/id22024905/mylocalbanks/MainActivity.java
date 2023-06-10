@@ -131,29 +131,25 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.EnglishSelection) {
-            setLocale("en");
+            tvDBS.setText("DBS");
+            tvOCBC.setText("OCBC");
+            tvUOB.setText("UOB");
             return true;
         } else if (id == R.id.ChineseSelection) {
-            setLocale("zh");
+            tvDBS.setText("大华银行");
+            tvOCBC.setText("华侨银行");
+            tvUOB.setText("星展银行");
             return true;
         } else{
-            setLocale("th");
+            tvDBS.setText("ธนาคารยูโอบี");
+            tvOCBC.setText("สกอ");
+            tvUOB.setText("ทบ");
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    private void setLocale(String language) {
-        Locale locale = new Locale(language);
-        Locale.setDefault(locale);
-        Resources resources = getResources();
-        Configuration configuration = resources.getConfiguration();
-        configuration.setLocale(locale);
-        resources.updateConfiguration(configuration, resources.getDisplayMetrics());
-        tvDBS.setText(R.string.d_bs);
-        tvOCBC.setText(R.string.o_cbc);
-        tvUOB.setText(R.string.u_ob);
-    }
+
 
     private void setFavouriteBank(TextView bankTextView, boolean favouriteBank) {
         int color;
